@@ -1,0 +1,15 @@
+{
+    "name": "JEE Checklist",
+    "short_name": "JEE 2026",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#fffafc",
+    "theme_color": "#fbcfe8",
+    "description": "A cozy and beautiful checklist app for JEE 2026 preparation.",
+    "icons": [
+      { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+      { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+    ]
+  }
+
+  
