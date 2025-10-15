@@ -1,3 +1,4 @@
+// App.jsx
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
@@ -31,7 +32,7 @@ export default function JEEChecklistApp() {
     ]
   };
 
-  const [page, setPage] = useState('loading');
+  const [page, setPage] = useState('home');
   const [activeTab, setActiveTab] = useState('Physics');
   const [items, setItems] = useState(() => {
     const saved = localStorage.getItem('jeeTabs');
@@ -49,12 +50,6 @@ export default function JEEChecklistApp() {
   useEffect(() => {
     localStorage.setItem('jeeTabs', JSON.stringify(items));
   }, [items]);
-
-  // Loader for 1.5 seconds
-  useEffect(() => {
-    const timer = setTimeout(() => setPage('home'), 1500);
-    return () => clearTimeout(timer);
-  }, []);
 
   const addItem = () => {
     if (newItem.trim() === '') return;
@@ -83,14 +78,6 @@ export default function JEEChecklistApp() {
     return total === 0 ? 0 : Math.round((completed / total) * 100);
   };
 
-  if (page === 'loading') {
-    return (
-      <div className="loader-container">
-        <div className="loader-dot"></div>
-      </div>
-    );
-  }
-
   if (page === 'home') {
     return (
       <div className="home-container">
@@ -108,7 +95,6 @@ export default function JEEChecklistApp() {
     <div className="app-container">
       <h1 className="title">📘 JEE 2026 Chapter Checklist</h1>
 
-      {/* Tabs */}
       <div className="tabs">
         {Object.keys(subjectData).map(subject => (
           <button
@@ -121,7 +107,6 @@ export default function JEEChecklistApp() {
         ))}
       </div>
 
-      {/* Progress bar */}
       <div className="progress-container">
         <div className="progress-bar">
           <div className="progress-fill" style={{ width: `${progress}%` }}></div>
@@ -129,7 +114,6 @@ export default function JEEChecklistApp() {
         <p className="progress-text">{progress}% Completed</p>
       </div>
 
-      {/* Checklist items */}
       <div className="card">
         <h2 className="subject-title">{activeTab}</h2>
 
