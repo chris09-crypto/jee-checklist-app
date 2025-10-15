@@ -1,6 +1,5 @@
 /* App.css */
 
-/* Reset and base styling */
 * {
   box-sizing: border-box;
 }
@@ -14,64 +13,47 @@ html, body {
   color: #fff;
 }
 
-/* ===== HOME SCREEN ===== */
+/* Centered Home Screen */
 .home-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100dvh; /* dynamic height for iPhone Safari */
-  width: 100%;
+  height: 100dvh; /* use dynamic viewport height for iPhone Safari */
   text-align: center;
-  animation: fadeIn 1.5s ease-in-out;
+  padding: 20px;
 }
 
 .title {
-  font-size: 2.2rem;
-  font-weight: 700;
-  margin-bottom: 25px;
+  font-size: 2rem;
+  margin-bottom: 20px;
   text-align: center;
-  letter-spacing: 1px;
 }
 
 .button {
   background: #fff;
   color: #000;
   border: none;
-  padding: 12px 22px;
-  border-radius: 12px;
+  padding: 12px 20px;
+  border-radius: 10px;
   font-weight: bold;
   cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.3s;
+  transition: 0.3s;
 }
 
 .button:hover {
-  opacity: 0.85;
-  transform: scale(1.05);
+  opacity: 0.8;
 }
 
-/* Fade-in animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== MAIN APP ===== */
+/* Main App */
 .app-container {
-  min-height: 100dvh;
+  min-height: 100dvh; /* fixes centering on iPhone */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   padding: 20px;
   text-align: center;
-  animation: fadeIn 1s ease-in;
 }
 
 .tabs {
@@ -79,7 +61,7 @@ html, body {
   justify-content: center;
   margin-bottom: 15px;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 5px;
 }
 
 .tab {
