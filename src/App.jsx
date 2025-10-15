@@ -36,11 +36,14 @@ export default function JEEChecklistApp() {
   const [activeTab, setActiveTab] = useState('Physics');
   const [items, setItems] = useState(() => {
     const saved = localStorage.getItem('jeeTabs');
-    return saved ? JSON.parse(saved) : Object.fromEntries(
-      Object.entries(subjectData).map(([subject, list]) => [
-        subject, list.map(ch => ({ text: ch, checked: false }))
-      ])
-    );
+    return saved
+      ? JSON.parse(saved)
+      : Object.fromEntries(
+          Object.entries(subjectData).map(([subject, list]) => [
+            subject,
+            list.map(ch => ({ text: ch, checked: false }))
+          ])
+        );
   });
   const [newItem, setNewItem] = useState('');
 
@@ -69,6 +72,12 @@ export default function JEEChecklistApp() {
     setItems({ ...items, [activeTab]: updated });
   };
 
+  const getProgress = (subject) => {
+    const total = items[subject].length;
+    const completed = items[subject].filter(i => i.checked).length;
+    return total === 0 ? 0 : Math.round((completed / total) * 100);
+  };
+
   if (page === 'home') {
     return (
       <div className="container">
@@ -79,6 +88,8 @@ export default function JEEChecklistApp() {
       </div>
     );
   }
+
+  const progress = getProgress(activeTab);
 
   return (
     <div className="container">
@@ -94,6 +105,16 @@ export default function JEEChecklistApp() {
             {subject}
           </button>
         ))}
+      </div>
+
+      <div className="progress-container">
+        <div className="progress-bar">
+          <div
+            className="progress-fill"
+            style={{ width: `${progress}%` }}
+          ></div>
+        </div>
+        <p className="progress-text">{progress}% Completed</p>
       </div>
 
       <div className="card">
