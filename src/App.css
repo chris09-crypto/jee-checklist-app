@@ -1,34 +1,62 @@
-@import url('https://fonts.cdnfonts.com/css/gotham');
+@import url("https://fonts.cdnfonts.com/css/gotham");
 
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   height: 100%;
   background-color: #000;
   color: #fff;
-  font-family: 'Gotham', sans-serif;
+  font-family: "Gotham", sans-serif;
+}
+
+/* ===== Loader ===== */
+.loader-container {
+  height: 100dvh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
+  background-color: #000;
 }
 
-/* Centered container for Home screen */
+.loader-dot {
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: pulse 1s infinite ease-in-out;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}
+
+/* ===== Home Screen ===== */
 .home-container {
+  height: 100dvh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100dvh;
-  width: 100%;
-  background-color: #000;
+  background: #000;
   text-align: center;
 }
 
 .title {
   font-size: 2rem;
-  margin-bottom: 20px;
   color: #fff;
+  margin-bottom: 20px;
+  text-align: center;
 }
 
 .button {
@@ -47,6 +75,7 @@ body, html {
   color: #000;
 }
 
+/* ===== App Screen ===== */
 .app-container {
   text-align: center;
   padding: 20px;
@@ -152,47 +181,14 @@ body, html {
   font-size: 0.8rem;
 }
 
-/* ===== Loader ===== */
-.loader-container {
-  height: 100dvh;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #000;
-}
-
-.loader-dot {
-  width: 16px;
-  height: 16px;
-  background-color: #fff;
-  border-radius: 50%;
-  animation: pulse 1s infinite ease-in-out;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
-}
-
-@keyframes pulse {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.5);
-  }
-}
-
-/* Mobile optimization */
 @media (max-width: 480px) {
   .title {
     font-size: 1.6rem;
   }
-
   .button {
     font-size: 0.9rem;
     padding: 8px 20px;
   }
-
   .app-container {
     padding: 15px;
   }
