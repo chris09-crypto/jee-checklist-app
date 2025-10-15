@@ -80,7 +80,7 @@ export default function JEEChecklistApp() {
 
   if (page === 'home') {
     return (
-      <div className="container">
+      <div className="home-container">
         <h1 className="title">JEE 2026 Checklist</h1>
         <button className="button" onClick={() => setPage('checklist')}>
           Open Checklist
@@ -92,7 +92,7 @@ export default function JEEChecklistApp() {
   const progress = getProgress(activeTab);
 
   return (
-    <div className="container">
+    <div className="app-container">
       <h1 className="title">📘 JEE 2026 Chapter Checklist</h1>
 
       <div className="tabs">
@@ -109,10 +109,7 @@ export default function JEEChecklistApp() {
 
       <div className="progress-container">
         <div className="progress-bar">
-          <div
-            className="progress-fill"
-            style={{ width: `${progress}%` }}
-          ></div>
+          <div className="progress-fill" style={{ width: `${progress}%` }}></div>
         </div>
         <p className="progress-text">{progress}% Completed</p>
       </div>
@@ -141,9 +138,7 @@ export default function JEEChecklistApp() {
                 />
                 <span className="item-text">{item.text}</span>
               </div>
-              <button className="remove-button" onClick={() => removeItem(i)}>
-                Remove
-              </button>
+              <button className="remove-button" onClick={() => removeItem(i)}>Remove</button>
             </div>
           ))}
         </div>
