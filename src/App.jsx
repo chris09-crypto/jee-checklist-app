@@ -3,6 +3,10 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 export default function JEEChecklistApp() {
+  const [page, setPage] = useState('loading');
+  const [activeTab, setActiveTab] = useState('Physics');
+  const [newItem, setNewItem] = useState('');
+
   const subjectData = {
     Physics: [
       'Units and Dimensions', 'Kinematics', 'Laws of Motion', 'Work, Power and Energy',
@@ -32,8 +36,6 @@ export default function JEEChecklistApp() {
     ]
   };
 
-  const [page, setPage] = useState('home');
-  const [activeTab, setActiveTab] = useState('Physics');
   const [items, setItems] = useState(() => {
     const saved = localStorage.getItem('jeeTabs');
     return saved
@@ -45,11 +47,15 @@ export default function JEEChecklistApp() {
           ])
         );
   });
-  const [newItem, setNewItem] = useState('');
 
   useEffect(() => {
     localStorage.setItem('jeeTabs', JSON.stringify(items));
   }, [items]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setPage('home'), 1500); // show loader for 1.5 seconds
+    return () => clearTimeout(timer);
+  }, []);
 
   const addItem = () => {
     if (newItem.trim() === '') return;
@@ -77,6 +83,14 @@ export default function JEEChecklistApp() {
     const completed = items[subject].filter(i => i.checked).length;
     return total === 0 ? 0 : Math.round((completed / total) * 100);
   };
+
+  if (page === 'loading') {
+    return (
+      <div className="loader-container">
+        <div className="loader-dot"></div>
+      </div>
+    );
+  }
 
   if (page === 'home') {
     return (
