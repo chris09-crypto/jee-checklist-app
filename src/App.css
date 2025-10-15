@@ -1,13 +1,12 @@
-@import url("https://fonts.cdnfonts.com/css/gotham");
+@import url('https://fonts.cdnfonts.com/css/gotham');
 
-body,
-html {
+body, html {
   margin: 0;
   padding: 0;
   height: 100%;
   background-color: #000;
   color: #fff;
-  font-family: "Gotham", sans-serif;
+  font-family: 'Gotham', sans-serif;
 }
 
 /* ===== Loader ===== */
@@ -17,7 +16,6 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #000;
 }
 
 .loader-dot {
@@ -26,41 +24,33 @@ html {
   background-color: #fff;
   border-radius: 50%;
   animation: pulse 1s infinite ease-in-out;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 10px rgba(255,255,255,0.6);
 }
 
 @keyframes pulse {
-  0%, 100% {
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.5);
-  }
+  0%,100% {opacity: 0.3; transform: scale(1);}
+  50% {opacity: 1; transform: scale(1.5);}
 }
 
 /* ===== Home Screen ===== */
 .home-container {
-  height: 100dvh;
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: #000;
+  height: 100dvh;
+  width: 100%;
   text-align: center;
 }
 
 .title {
   font-size: 2rem;
-  color: #fff;
   margin-bottom: 20px;
-  text-align: center;
+  font-weight: 700;
 }
 
 .button {
-  background-color: transparent;
+  background: transparent;
   border: 1px solid #fff;
   color: #fff;
   padding: 10px 25px;
@@ -75,15 +65,16 @@ html {
   color: #000;
 }
 
-/* ===== App Screen ===== */
+/* ===== App Container ===== */
 .app-container {
-  text-align: center;
-  padding: 20px;
   width: 100%;
   max-width: 420px;
   margin: 0 auto;
+  padding: 20px;
+  text-align: center;
 }
 
+/* Tabs */
 .tabs {
   display: flex;
   justify-content: space-around;
@@ -106,13 +97,14 @@ html {
   border-bottom: 2px solid #fff;
 }
 
+/* Progress Bar */
 .progress-container {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .progress-bar {
   background-color: #222;
-  height: 8px;
+  height: 10px;
   border-radius: 10px;
   overflow: hidden;
   width: 100%;
@@ -121,21 +113,25 @@ html {
 .progress-fill {
   background-color: #fff;
   height: 100%;
+  width: 0;
   transition: width 0.3s ease;
 }
 
 .progress-text {
   font-size: 0.9rem;
-  margin-top: 8px;
+  margin-top: 6px;
 }
 
+/* Card */
 .card {
   margin-top: 20px;
   background-color: #111;
   border-radius: 12px;
   padding: 15px;
+  text-align: left;
 }
 
+/* Input */
 .input-container {
   display: flex;
   justify-content: center;
@@ -144,19 +140,19 @@ html {
 }
 
 .input {
-  background: #000;
-  color: #fff;
+  flex: 1;
+  background-color: #000;
   border: 1px solid #fff;
   padding: 8px 10px;
   border-radius: 8px;
-  flex: 1;
+  color: #fff;
 }
 
+/* Items */
 .items-container {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  text-align: left;
 }
 
 .item {
@@ -179,17 +175,4 @@ html {
   color: #f55;
   cursor: pointer;
   font-size: 0.8rem;
-}
-
-@media (max-width: 480px) {
-  .title {
-    font-size: 1.6rem;
-  }
-  .button {
-    font-size: 0.9rem;
-    padding: 8px 20px;
-  }
-  .app-container {
-    padding: 15px;
-  }
 }
